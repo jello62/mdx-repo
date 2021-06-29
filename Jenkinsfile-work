@@ -130,7 +130,6 @@ pipeline {
 	    }
         }
 	
-	/*
 	// Call CD deployment pipeline.  
         stage('Deploy') { 
             steps {
@@ -143,7 +142,6 @@ pipeline {
                                         addParam: '{"pipeline":{"pipelineName":"${CD_PIPELINE}","parameters":[{"parameterName":"releaseVersion","parameterValue":"${RELEASE_VERSION}"}]}}'
                 }
             }
-        }*/
+        }
     }
-    
 }
