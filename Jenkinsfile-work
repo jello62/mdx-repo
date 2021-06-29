@@ -7,8 +7,8 @@ pipeline {
     }
 
     environment {
-        GIT_CREDENTIALS = 'jello62-github'
-        GIT_URL = 'https://github.com/jello62/mdx-repo.git'
+        GIT_CREDENTIALS = 'CMS-GITHUB-PAT'
+        GIT_URL = 'https://github.cms.gov/FEISystems/mdx-portal-jenkins-testing.git'
         
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "https"
@@ -29,7 +29,13 @@ pipeline {
         stage("Clone code from GitHub") {
             steps {
                 script {
-                    git url: GIT_URL
+                    //git url: GIT_URL
+		    
+		    checkout([$class: 'GitSCM', 
+                             branches: [[name: '*/master']], 
+                             extensions: [[$class: 'CleanBeforeCheckout', 
+                             deleteUntrackedNestedRepositories: true]], 
+                             userRemoteConfigs: [[credentialsId: GIT_CREDENTIALS, url: GIT_URL]]])
                  }
             }
         }
