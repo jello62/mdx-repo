@@ -26,7 +26,6 @@ pipeline {
 	CD_CONFIGURATION = "CD-DEV"
 	CD_PROJECT = "MDX-Deploy"  
         CD_PIPELINE = "MDX DEV0 - Deployment"    
-	RELEASE_VERSION = "1.2"
     }	
 	
     stages {
@@ -129,7 +128,7 @@ pipeline {
                 }
 	    }
         }
-	
+	/*
 	// Call CD deployment pipeline.  
         stage('Deploy') { 
             steps {
@@ -143,5 +142,6 @@ pipeline {
                 }
             }
         }
+	*/
     }
 }
