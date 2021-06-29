@@ -13,7 +13,7 @@ pipeline {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "https"
         NEXUS_URL = "10.100.82.196:8443"
-        NEXUS_CREDENTIAL_ID = "nexus-service"
+        NEXUS_CREDENTIAL_ID = "o2cg-nexus"
         //NEXUS_SNAPSHOTS_REPOSITORY = "ISD4-mdx-mpt-snapshot"
         //NEXUS_RELEASES_REPOSITORY = "ISD4-mdx-mpt-release"
 	    NEXUS_SNAPSHOTS_REPOSITORY = "ISD4-Leidos-Internal-Snapshot" // testing
