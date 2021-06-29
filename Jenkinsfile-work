@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
 		            // credentials???
-                    git credentialsId: GIT_CREDENTIALS, url: GIT_URL
+                    git url: GIT_URL
                     /*
 		    checkout([$class: 'GitSCM', 
                              branches: [[name: '*/master']], 
