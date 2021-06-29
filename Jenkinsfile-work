@@ -31,7 +31,8 @@ pipeline {
                 script {
 		            // credentials???
                     git credentialsId: GIT_CREDENTIALS, url: GIT_URL
-                    /*checkout([$class: 'GitSCM', 
+                    /*
+		    checkout([$class: 'GitSCM', 
                              branches: [[name: '*/master']], 
                              extensions: [[$class: 'CleanBeforeCheckout', 
                              deleteUntrackedNestedRepositories: true]], 
