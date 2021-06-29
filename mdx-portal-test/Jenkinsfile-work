@@ -12,12 +12,12 @@ pipeline {
         
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "localhost:8081"
-        NEXUS_CREDENTIAL_ID = "nexus-cred"
+        NEXUS_URL = "10.100.82.196:8443"
+        NEXUS_CREDENTIAL_ID = "nexus-service"
         //NEXUS_SNAPSHOTS_REPOSITORY = "ISD4-mdx-mpt-snapshot"
         //NEXUS_RELEASES_REPOSITORY = "ISD4-mdx-mpt-release"
-	    NEXUS_SNAPSHOTS_REPOSITORY = "maven-snapshots" // testing
-        NEXUS_RELEASES_REPOSITORY = "maven-releases" // testing
+	    NEXUS_SNAPSHOTS_REPOSITORY = "ISD4-Leidos-Internal-Snapshot" // testing
+        NEXUS_RELEASES_REPOSITORY = "ISD4-Leidos-Internal-Release" // testing
 
 	    CD_CONFIGURATION = "CD-DEV"
 	    CD_PROJECT = "MDX-Deploy"  
@@ -30,13 +30,14 @@ pipeline {
             steps {
                 script {
 		            // credentials???
-                    //git credentialsId: GIT_CREDENTIALS, url: GIT_URL
-                    checkout([$class: 'GitSCM', 
+                    git credentialsId: GIT_CREDENTIALS, url: GIT_URL
+                    /*checkout([$class: 'GitSCM', 
                              branches: [[name: '*/master']], 
                              extensions: [[$class: 'CleanBeforeCheckout', 
                              deleteUntrackedNestedRepositories: true]], 
                              //userRemoteConfigs: [[credentialsId: 'jello62-github', url: 'https://github.com/jello62/mdx-repo.git']]])
                              userRemoteConfigs: [[credentialsId: GIT_CREDENTIALS, url: GIT_URL]]])
+			     */
 
                 }
             }
