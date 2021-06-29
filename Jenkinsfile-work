@@ -7,8 +7,8 @@ pipeline {
     }
 
     environment {
-        GIT_CREDENTIALS = 'CMS-GITHUB-PAT'
-        GIT_URL = 'https://github.cms.gov/FEISystems/mdx-portal-jenkins-testing.git'
+        GIT_CREDENTIALS = 'jello62-github'
+        GIT_URL = 'https://github.com/jello62/mdx-repo.git'
         
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "https"
