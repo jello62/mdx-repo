@@ -11,7 +11,7 @@ pipeline {
         GIT_URL = 'https://github.com/jello62/mdx-repo.git'
         
         NEXUS_VERSION = "nexus3"
-        NEXUS_PROTOCOL = "http"
+        NEXUS_PROTOCOL = "https"
         NEXUS_URL = "10.100.82.196:8443"
         NEXUS_CREDENTIAL_ID = "nexus-service"
         //NEXUS_SNAPSHOTS_REPOSITORY = "ISD4-mdx-mpt-snapshot"
