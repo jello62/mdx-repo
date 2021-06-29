@@ -3,10 +3,12 @@ pipeline {
         label 'ssh-slave'
     }
 
+/*
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "Maven3"
     }
+    */
 
     environment {
         GIT_CREDENTIALS = 'jello62-github'
