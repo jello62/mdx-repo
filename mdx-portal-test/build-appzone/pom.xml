@@ -5,5 +5,5 @@
     <artifactId>mdx-portal-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>build-appzone</artifactId>
+  <artifactId>mdx-app</artifactId>
 </project>
