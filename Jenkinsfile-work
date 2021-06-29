@@ -26,7 +26,7 @@ pipeline {
 	CD_CONFIGURATION = "CD-DEV"
 	CD_PROJECT = "MDX-Deploy"  
         CD_PIPELINE = "MDX DEV0 - Deployment"    
-	RELEASE_VERSION = ""
+	RELEASE_VERSION = "1.2"
     }	
 	
     stages {
@@ -83,7 +83,7 @@ pipeline {
 		script {
 		    // read parent pom.xml for modules, groupId and version
 		    parentPom = readMavenPom file: "mdx-portal-test/pom.xml"
-		    RELEASE_VERSION = "${parentPom.version}"
+		    env.RELEASE_VERSION = "${parentPom.version}"
 				    
 		    // set repository based on version in pom.xml
 		    if (parentPom.version.contains("-SNAPSHOT")) {
