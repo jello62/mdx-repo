@@ -16,11 +16,11 @@ pipeline {
         NEXUS_CREDENTIAL_ID = "o2cg-nexus"
         //NEXUS_SNAPSHOTS_REPOSITORY = "ISD4-mdx-mpt-snapshot"
         //NEXUS_RELEASES_REPOSITORY = "ISD4-mdx-mpt-release"
-	    NEXUS_SNAPSHOTS_REPOSITORY = "ISD4-Leidos-Internal-Snapshot" // testing
-        NEXUS_RELEASES_REPOSITORY = "ISD4-Leidos-Internal-Release" // testing
+	NEXUS_SNAPSHOTS_REPOSITORY = 'ISD4-Leidos-Internal-Snapshot' 
+        NEXUS_RELEASES_REPOSITORY = 'ISD4-Internal-Leidos-Release'
 
-	    CD_CONFIGURATION = "CD-DEV"
-	    CD_PROJECT = "MDX-Deploy"  
+	CD_CONFIGURATION = "CD-DEV"
+	CD_PROJECT = "MDX-Deploy"  
         CD_PIPELINE = "MDX DEV0 - Deployment"    
 	RELEASE_VERSION = ""
     }	
