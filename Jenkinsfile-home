@@ -1,11 +1,14 @@
+def getPomVersion () {
+    // read parent pom.xml for modules, groupId and version
+	parentPom = readMavenPom file: "mdx-portal-test/pom.xml"
+	return parentPom.version
+}
+
 pipeline {
     agent any
 
     parameters {
-       string defaultValue: '1.2', 
-              description: 'Release version from pom file.', 
-              name: 'RELEASE_VERSION', 
-              trim: true
+       string defaultValue: '1.2', description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
     }
 
     tools {
@@ -18,17 +21,11 @@ pipeline {
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "localhost:8081"
         NEXUS_CREDENTIAL_ID = "nexus-cred"
-        //NEXUS_SNAPSHOTS_REPOSITORY = "ISD4-mdx-mpt-snapshot"
-        //NEXUS_RELEASES_REPOSITORY = "ISD4-mdx-mpt-release"
 	NEXUS_SNAPSHOTS_REPOSITORY = "maven-snapshots"
         NEXUS_RELEASES_REPOSITORY = "maven-releases"
-
-	CD_CONFIGURATION = "CD-DEV"
-	CD_PROJECT = "MDX-Deploy"  
-        CD_PIPELINE = "MDX DEV0 - Deployment"    
-	RELEASE_VERSION = ""
     }	
-	
+
+    stages {
         stage('Build') {
             steps {
                 dir('mdx-portal-test') {
