@@ -30,7 +30,7 @@ pipeline {
 		    
 		    if (parentPom.version == RELEASE_VERSION) {
 		        // add version number to build displayName
-                        //currentBuild.displayName = "#${currentBuild.number}_v${parentPom.version}"
+                        currentBuild.displayName = "${currentBuild.number}_v${parentPom.version}"
 			
 		        dir('mdx-portal-test') {
                            bat 'mvn clean install'
