@@ -87,8 +87,10 @@ pipeline {
 	    }
         }
 	
-	stage ('Deploy'){
-	   echo RELEASE_VERSION
+	stage ('Deploy') {
+	   steps {
+	       echo RELEASE_VERSION
+	   }
 	}
     }  
 }
