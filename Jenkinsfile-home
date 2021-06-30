@@ -1,8 +1,15 @@
+def getPomVersion {
+   parentPom = readMavenPom file: "mdx-portal-test/pom.xml"
+   return parentPom.version
+}
+
+def releaseVersion = getPomVersion()
+
 pipeline {
     agent any
 
     parameters {
-       string defaultValue: '999999', description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
+       string defaultValue: "$releaseVersion", description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
     }
 
     tools {
