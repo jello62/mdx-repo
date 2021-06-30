@@ -1,11 +1,8 @@
-def releaseVersion = xyz
-
-
 pipeline {
     agent any
 
     parameters {
-       string defaultValue: "$releaseVersion", description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
+       string defaultValue: "", description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
     }
 
     tools {
@@ -25,9 +22,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('mdx-portal-test') {
-                    bat 'mvn clean install'
-                }
+	        script {
+	            // read parent pom.xml for modules, groupId and version
+		    parentPom = readMavenPom file: "mdx-portal-test/pom.xml"
+		    
+		    if (parentPom.version == RELEASE_VERSION) {
+		        dir('mdx-portal-test') {
+                           bat 'mvn clean install'
+                        }
+		    } else {
+		        error "RELEASE_VERSION parameter and pom.xml version do not match.  Please rerun pipeline with RELEASE_VERSION parameter set to \'${parentPom.version}\'";
+		    }
+		}
             }
         }
 		
