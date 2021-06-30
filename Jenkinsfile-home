@@ -27,7 +27,7 @@ pipeline {
 	        script {
 	            // read parent pom.xml for modules, groupId and version
 		    parentPom = readMavenPom file: "mdx-portal-test/pom.xml"
-		    currentBuild.displayName = "#${currentBuild.number_v${parentPom.version}'
+		    currentBuild.displayName = "#${currentBuild.number_v${parentPom.version}"
 		    
 		    if (parentPom.version == RELEASE_VERSION) {
 		        dir('mdx-portal-test') {
