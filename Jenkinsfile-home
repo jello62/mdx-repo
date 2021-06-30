@@ -1,14 +1,8 @@
-def getPomVersion () {
-    // read parent pom.xml for modules, groupId and version
-	parentPom = readMavenPom file: "mdx-portal-test/pom.xml"
-	return parentPom.version
-}
-
 pipeline {
     agent any
 
     parameters {
-       string defaultValue: getPomVersion(), description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
+       string defaultValue: '999999', description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
     }
 
     tools {
