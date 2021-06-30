@@ -38,25 +38,6 @@ pipeline {
 	RELEASE_VERSION = ""
     }	
 	
-	/*
-    stages {
-        stage("Clone code from GitHub") {
-            steps {
-                script {
-		            // credentials???
-                    //git credentialsId: GIT_CREDENTIALS, url: GIT_URL
-                    checkout([$class: 'GitSCM', 
-                             branches: [[name: '*/master']], 
-                             extensions: [[$class: 'CleanBeforeCheckout', 
-                             deleteUntrackedNestedRepositories: true]], 
-                             //userRemoteConfigs: [[credentialsId: 'jello62-github', url: 'https://github.com/jello62/mdx-repo.git']]])
-                             userRemoteConfigs: [[credentialsId: GIT_CREDENTIALS, url: GIT_URL]]])
-
-                }
-            }
-        }
-        */
-		
         stage('Build') {
             steps {
                 dir('mdx-portal-test') {
