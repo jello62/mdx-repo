@@ -8,7 +8,7 @@ pipeline {
     agent any
 
     parameters {
-       string defaultValue: '1.2', description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
+       string defaultValue: getPomVersion(), description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
     }
 
     tools {
