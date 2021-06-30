@@ -91,13 +91,3 @@ pipeline {
 	}
     }  
 }
-
-node {
-def getPomVersion {
-   parentPom = readMavenPom file: "mdx-portal-test/pom.xml"
-   return parentPom.version
-}
-
-def releaseVersion = getPomVersion()
-}
-
