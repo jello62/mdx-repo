@@ -83,7 +83,7 @@ pipeline {
 	
 	stage ('Deploy') {
 	   steps {
-	       echo RELEASE_VERSION
+	       echo "deploying ${RELEASE_VERSION}"
 	   }
 	}
     }  
