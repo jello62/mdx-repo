@@ -34,6 +34,7 @@ pipeline {
 			currentBuild.displayName = "#${currentBuild.number}_v${RELEASE_VERSION}"
 			
 		        dir('mdx-portal-test') {
+			   bat 'mvn -v'
                            bat 'mvn clean install'
                         }
 		    //} else {
