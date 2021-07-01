@@ -89,7 +89,7 @@ pipeline {
                                 );
 				*/
 				nexusPublisher nexusInstanceId: 'localhost', 
-		                   nexusRepositoryId: nexusRepository, 
+		                   nexusRepositoryId: 'maven-releases', 
 				   packages: [[$class: 'MavenPackage', 
 				   mavenAssetList: [[classifier: '', 
 				                     extension: pom.packaging, 
