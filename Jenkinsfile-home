@@ -56,6 +56,8 @@ pipeline {
                     } else {
                         nexusRepository = "${NEXUS_RELEASES_REPOSITORY}"
                     }
+		    
+
 
 		    // upload each module artifact using its pom.xml
                     parentPom.modules.each {
@@ -67,7 +69,8 @@ pipeline {
                             artifactExists = fileExists artifactPath;
                             if(artifactExists) {
                                 echo "*** File: ${artifactPath}, group: ${parentPom.groupId}, packaging: ${pom.packaging}, version ${parentPom.version}";
-                                nexusArtifactUploader(
+                                /*
+				nexusArtifactUploader(
                                     nexusVersion: NEXUS_VERSION,
                                     protocol: NEXUS_PROTOCOL,
                                     nexusUrl: NEXUS_URL,
@@ -86,6 +89,17 @@ pipeline {
                                          type: "pom"]
                                     ]
                                 );
+				*/
+				nexusPublisher nexusInstanceId: 'localhost', 
+		                   nexusRepositoryId: nexusRepository, 
+				   packages: [[$class: 'MavenPackage', 
+				   mavenAssetList: [[classifier: '', 
+				                     extension: 'jar', 
+						     filePath: 'target/mdx-app-1.0.0.jar']], 
+			           mavenCoordinate: [artifactId: pom.artifactId, 
+				                     groupId: parentPom.groupId', 
+						     packaging: pom.packaging, 
+						     version: pom.packaging]]]
                             } else {
                                 error "*** File: ${artifactPath}, could not be found";
                             }
