@@ -57,8 +57,6 @@ pipeline {
                         nexusRepository = "${NEXUS_RELEASES_REPOSITORY}"
                     }
 		    
-
-
 		    // upload each module artifact using its pom.xml
                     parentPom.modules.each {
                         dir("mdx-portal-test/${it}") {
@@ -97,7 +95,7 @@ pipeline {
 				                     extension: pom.packaging, 
 						     filePath: artifactPath]], 
 			           mavenCoordinate: [artifactId: pom.artifactId, 
-				                     groupId: parentPom.groupId', 
+				                     groupId: parentPom.groupId, 
 						     packaging: pom.packaging, 
 						     version: pom.packaging]]]
                             } else {
