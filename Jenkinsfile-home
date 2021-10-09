@@ -103,7 +103,7 @@ pipeline {
 			           mavenCoordinate: [artifactId: pom.artifactId, 
 				                     groupId: parentPom.groupId, 
 						     packaging: pom.packaging, 
-						     version: RELEASE_VERSION]]]
+						     version: BUILD_VERSION]]]
                             } else {
                                 error "*** File: ${artifactPath}, could not be found";
                             }
