@@ -98,9 +98,9 @@ pipeline {
     NEXUS_RELEASES_REPOSITORY = 'maven-releases'
     parentPom = ''
     BUILD_VERSION = ''
+    RELEASE_VERSION = '2.0.1'
   }
   parameters {
-    string(defaultValue: '2.0.1', description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true)
     gitParameter(branch: '', branchFilter: 'origin/(.*)', defaultValue: 'master', description: 'Select branch to build', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'DEFAULT', sortMode: 'DESCENDING_SMART', tagFilter: '*', type: 'PT_BRANCH')
   }
 }
