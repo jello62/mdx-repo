@@ -3,9 +3,9 @@ pipeline {
 
     parameters {
        string defaultValue: "", description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
-       //gitParameter branch: '', branchFilter: '.*', defaultValue: 'origin/master', description: 'Select branch to build', name: 'BRANCH', 
-	//              quickFilterEnabled: false, selectedValue: 'NONE', 
-	  //            sortMode: 'DESCENDING_SMART', tagFilter: '*', type: 'PT_BRANCH', useRepository: 'https://github.com/jello62/mdx-portal-test.git'   
+       gitParameter branch: '', branchFilter: 'origin/(.*)', defaultValue: 'master', description: 'Select branch to build', name: 'BRANCH', 
+	              quickFilterEnabled: false, selectedValue: 'master', 
+	              sortMode: 'DESCENDING_SMART', tagFilter: '*', type: 'PT_BRANCH', useRepository: 'https://github.com/jello62/mdx-portal-test.git'   
     }
 
     tools {
