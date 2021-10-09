@@ -16,7 +16,6 @@ pipeline {
           }
         }
 
-        echo 'Building ${BUILD_VERSION}...'
       }
     }
 
