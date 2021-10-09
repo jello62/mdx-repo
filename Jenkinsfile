@@ -100,7 +100,7 @@ pipeline {
     BUILD_VERSION = ''
   }
   parameters {
-    string(defaultValue: '2.0.0', description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true)
+    string(defaultValue: '2.0.2', description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true)
     gitParameter(branch: '', branchFilter: 'origin/(.*)', defaultValue: 'master', description: 'Select branch to build', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'DEFAULT', sortMode: 'DESCENDING_SMART', tagFilter: '*', type: 'PT_BRANCH')
   }
 }
