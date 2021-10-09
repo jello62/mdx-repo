@@ -3,8 +3,9 @@ pipeline {
 
     parameters {
        string defaultValue: "", description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
-       gitParameter branch: '', branchFilter: '.*', defaultValue: 'origin/master', description: 'Select branch to build', name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'PT_BRANCH'
-    }
+         gitParameter branch: '', branchFilter: '.*', defaultValue: 'origin/master', description: 'Select branch to build', name: 'BRANCH', 
+	              quickFilterEnabled: false, selectedValue: 'NONE', 
+	              sortMode: 'DESCENDING_SMART', tagFilter: '*', type: 'PT_BRANCH', useRepository: 'https://github.com/jello62/mdx-portal-test.git'    }
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
