@@ -3,6 +3,8 @@ pipeline {
 
     parameters {
        string defaultValue: "", description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
+        gitParameter branch: '', branchFilter: '.*', defaultValue: '*/master', description: 'Select the branch you want to build', 
+	             name: 'BRANCH', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'PT_BRANCH', useRepository: 'default'
     }
 
     tools {
