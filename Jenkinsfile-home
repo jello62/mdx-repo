@@ -2,7 +2,10 @@ pipeline {
     agent any
 
     parameters {
-       string defaultValue: "", description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
+       string defaultValue: "2.0.0", description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true
+       gitParameter branch: '', branchFilter: 'origin/(.*)', defaultValue: 'master', description: 'Select branch to build', name: 'BRANCH', 
+	              quickFilterEnabled: false, selectedValue: 'DEFAULT', 
+	              sortMode: 'DESCENDING_SMART', tagFilter: '*', type: 'PT_BRANCH'  
     }
 
     tools {
@@ -31,7 +34,8 @@ pipeline {
 		    //if (parentPom.version == RELEASE_VERSION) {
 		        // add version number to build displayName
                         //currentBuild.displayName = "#${currentBuild.number}_v${parentPom.version}"
-			currentBuild.displayName = "#${currentBuild.number}_v${RELEASE_VERSION}"
+			BUILD_VERSION="${RELEASE_VERSION}.${currentBuild.number}"
+			currentBuild.displayName = "${BRANCH}-${BUILD_VERSION}"
 			
 		        dir('mdx-portal-test') {
 			   bat 'mvn -v'
@@ -75,7 +79,7 @@ pipeline {
                                     protocol: NEXUS_PROTOCOL,
                                     nexusUrl: NEXUS_URL,
                                     groupId: parentPom.groupId,
-                                    version: RELEASE_VERSION,
+                                    version: BUILD_VERSION,
                                     repository: nexusRepository,
                                     credentialsId: NEXUS_CREDENTIAL_ID,
                                     artifacts: [
@@ -99,7 +103,7 @@ pipeline {
 			           mavenCoordinate: [artifactId: pom.artifactId, 
 				                     groupId: parentPom.groupId, 
 						     packaging: pom.packaging, 
-						     version: RELEASE_VERSION]]]
+						     version: BUILD_VERSION]]]
                             } else {
                                 error "*** File: ${artifactPath}, could not be found";
                             }
