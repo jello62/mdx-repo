@@ -97,7 +97,7 @@ pipeline {
     NEXUS_SNAPSHOTS_REPOSITORY = 'maven-snapshots'
     NEXUS_RELEASES_REPOSITORY = 'maven-releases'
     parentPom = ''
-    RELEASE_VERSION = ''
+    BUILD_VERSION = ''
   }
   parameters {
     string(defaultValue: '2.0.0', description: 'Release version from pom file.', name: 'RELEASE_VERSION', trim: true)
